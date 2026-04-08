@@ -161,6 +161,22 @@ export function App() {
     const root = containerRef.current
     if (!root) return
 
+    const nav = root.querySelector<HTMLElement>('#mainNav')
+    if (!nav) return
+
+    const update = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40)
+    }
+
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
+  }, [payload])
+
+  useEffect(() => {
+    const root = containerRef.current
+    if (!root) return
+
     // Custom cursor (site d’origine) — on conserve.
     const cursor = root.querySelector<HTMLElement>('#cursor')
     const ring = root.querySelector<HTMLElement>('#cursor-ring')
