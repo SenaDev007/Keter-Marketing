@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="90" x2="1040" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#111111"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(820 250) rotate(135) scale(520)">
+      <stop stop-color="#D4AF37" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#D4AF37" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#C49B2A"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="340" cy="420" r="220" fill="#D4AF37" opacity="0.08" filter="url(#soft)"/>
+
+  <!-- Logo mark -->
+  <g transform="translate(96 110)">
+    <rect x="0" y="0" width="92" height="92" rx="18" fill="rgba(212,175,55,0.10)" stroke="rgba(212,175,55,0.35)"/>
+    <path
+      d="M24 18h20c14 0 24 8 24 20 0 8-4 14-11 18l15 32H52L38 60h-4v28H24V18zm10 10v22h10c9 0 14-4 14-11 0-7-5-11-14-11H34z"
+      fill="url(#gold)"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+    />
+    <path d="M66 42l18-20h10L74 45l22 43H86L66 52V42z" fill="url(#gold)" opacity="0.95"/>
+  </g>
+
+  <!-- Title -->
+  <g transform="translate(220 128)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="700" letter-spacing="-0.5">
+      Keter Marketing
+    </text>
+    <text x="0" y="44" fill="rgba(212,175,55,0.85)" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" font-weight="600" letter-spacing="3.2">
+      AGENCE DE CONVERSION
+    </text>
+  </g>
+
+  <!-- Headline -->
+  <g transform="translate(96 262)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="66" font-weight="700" letter-spacing="-1.2">
+      On transforme vos visiteurs
+    </text>
+    <text x="0" y="74" fill="#FFFFFF" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="66" font-weight="700" letter-spacing="-1.2">
+      en clients.
+      <tspan fill="#D4AF37" font-style="italic"> À chaque fois.</tspan>
+    </text>
+  </g>
+
+  <!-- URL -->
+  <g transform="translate(96 560)">
+    <text x="0" y="0" fill="rgba(255,255,255,0.50)" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="18" font-weight="500" letter-spacing="0.2">
+      ketermarketing.com
+    </text>
+  </g>
+</svg>
+

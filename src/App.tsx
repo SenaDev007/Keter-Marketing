@@ -1,4 +1,6 @@
+import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import parse, { domToReact } from 'html-react-parser'
 import Lenis from 'lenis'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
@@ -9,10 +11,9 @@ type SitePayload = {
 
 function stripModalFromHtml(bodyHtml: string) {
   // On retire le modal “HTML” pour le remplacer par un modal React + Framer Motion.
-  return bodyHtml.replace(
-    /<!--\s*MODAL CONTACT\s*-->[\s\S]*?<script>/i,
-    '<script>',
-  )
+  const withoutModal = bodyHtml.replace(/<!--\s*MODAL CONTACT\s*-->[\s\S]*$/i, '')
+  // On retire aussi les scripts du HTML source (React ne les exécute pas, et ils peuvent casser l’arbre).
+  return withoutModal.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
 }
 
 export function App() {
@@ -25,6 +26,10 @@ export function App() {
     "Un appel de 30 minutes suffit pour savoir si on peut vous aider — et comment. C'est gratuit, sans engagement, et 100% utile."
 
   const styleTagId = useMemo(() => 'keter-site-style', [])
+  const motionTransition = useMemo(
+    () => ({ type: 'spring' as const, stiffness: 110, damping: 22, mass: 0.9 }),
+    [],
+  )
 
   useEffect(() => {
     let disposed = false
@@ -227,9 +232,44 @@ export function App() {
     }
   }, [isModalOpen])
 
+  const siteTree = useMemo(() => {
+    if (!payload?.bodyHtml) return null
+
+    return parse(payload.bodyHtml, {
+      replace(node) {
+        // Wrap section blocks with Framer Motion (premium viewport reveal)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const el = node as any
+        if (el?.type === 'tag' && el?.name === 'section') {
+          const attrs = el.attribs ?? {}
+          const id = attrs.id
+
+          return (
+            <motion.section
+              {...attrs}
+              id={id}
+              initial={{ opacity: 0, y: 26, filter: 'blur(8px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true, amount: 0.18, margin: '0px 0px -120px 0px' }}
+              transition={motionTransition}
+              style={{
+                ...(attrs.style ? ({} as React.CSSProperties) : undefined),
+                willChange: 'transform, opacity',
+              }}
+            >
+              {domToReact(el.children ?? [])}
+            </motion.section>
+          )
+        }
+
+        return undefined
+      },
+    })
+  }, [motionTransition, payload?.bodyHtml])
+
   return (
     <>
-      <main ref={containerRef} dangerouslySetInnerHTML={{ __html: payload?.bodyHtml ?? '' }} />
+      <main ref={containerRef}>{siteTree}</main>
 
       <AnimatePresence>
         {isModalOpen ? (
