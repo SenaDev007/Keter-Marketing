@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#111111"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix"
+        values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 0.22 0" />
+    </filter>
+    <linearGradient id="frameTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Ambient highlights (respecte la palette or/noir) -->
+  <circle cx="420" cy="300" r="260" fill="#D4AF37" opacity="0.10" filter="url(#soft)"/>
+  <circle cx="1180" cy="560" r="320" fill="#D4AF37" opacity="0.07" filter="url(#soft)"/>
+  <circle cx="980" cy="260" r="160" fill="#D4AF37" opacity="0.05" filter="url(#soft)"/>
+
+  <!-- Grain ultra subtil -->
+  <rect width="1600" height="900" filter="url(#noise)" opacity="0.035"/>
+
+  <!-- BEFORE / AFTER website frames -->
+  <g opacity="0.98" filter="url(#shadow)">
+    <!-- left frame -->
+    <g transform="translate(180 150)">
+      <rect x="0" y="0" width="560" height="620" rx="18" fill="#0B0B0B" stroke="#D4AF37" stroke-opacity="0.32"/>
+      <rect x="14" y="14" width="532" height="592" rx="14" fill="url(#glass)" stroke="#FFFFFF" stroke-opacity="0.07"/>
+
+      <!-- browser top bar -->
+      <rect x="14" y="14" width="532" height="44" rx="14" fill="url(#frameTop)" stroke="#FFFFFF" stroke-opacity="0.06"/>
+      <circle cx="40" cy="36" r="6" fill="#FFFFFF" opacity="0.10"/>
+      <circle cx="60" cy="36" r="6" fill="#FFFFFF" opacity="0.07"/>
+      <circle cx="80" cy="36" r="6" fill="#FFFFFF" opacity="0.05"/>
+      <rect x="112" y="28" width="300" height="16" rx="8" fill="#FFFFFF" opacity="0.06"/>
+
+      <!-- “avant” (dense, moins lisible) -->
+      <rect x="34" y="80" width="210" height="12" rx="6" fill="#D4AF37" opacity="0.38"/>
+      <rect x="34" y="108" width="330" height="14" rx="7" fill="#FFFFFF" opacity="0.08"/>
+      <rect x="34" y="134" width="300" height="14" rx="7" fill="#FFFFFF" opacity="0.06"/>
+      <rect x="34" y="170" width="492" height="198" rx="14" fill="#FFFFFF" opacity="0.055"/>
+
+      <g opacity="0.09">
+        <rect x="34" y="390" width="150" height="94" rx="14" fill="#FFFFFF"/>
+        <rect x="194" y="390" width="150" height="94" rx="14" fill="#FFFFFF"/>
+        <rect x="354" y="390" width="172" height="94" rx="14" fill="#FFFFFF"/>
+      </g>
+
+      <!-- CTA “avant” (faible contraste) -->
+      <rect x="34" y="510" width="220" height="44" rx="22" fill="#FFFFFF" opacity="0.07"/>
+      <rect x="34" y="570" width="492" height="14" rx="7" fill="#FFFFFF" opacity="0.045"/>
+    </g>
+
+    <!-- right frame -->
+    <g transform="translate(860 120)">
+      <rect x="0" y="0" width="560" height="680" rx="18" fill="#0B0B0B" stroke="#D4AF37" stroke-opacity="0.55"/>
+      <rect x="14" y="14" width="532" height="652" rx="14" fill="url(#glass)" stroke="#FFFFFF" stroke-opacity="0.08"/>
+
+      <!-- browser top bar -->
+      <rect x="14" y="14" width="532" height="46" rx="14" fill="url(#frameTop)" stroke="#FFFFFF" stroke-opacity="0.07"/>
+      <circle cx="40" cy="37" r="6" fill="#FFFFFF" opacity="0.11"/>
+      <circle cx="60" cy="37" r="6" fill="#FFFFFF" opacity="0.08"/>
+      <circle cx="80" cy="37" r="6" fill="#FFFFFF" opacity="0.06"/>
+      <rect x="112" y="29" width="310" height="16" rx="8" fill="#FFFFFF" opacity="0.065"/>
+
+      <!-- “après” (hiérarchie claire) -->
+      <rect x="34" y="88" width="210" height="12" rx="6" fill="#D4AF37" opacity="0.62"/>
+      <rect x="34" y="118" width="410" height="18" rx="9" fill="#FFFFFF" opacity="0.14"/>
+      <rect x="34" y="148" width="330" height="14" rx="7" fill="#FFFFFF" opacity="0.10"/>
+      <rect x="34" y="188" width="492" height="250" rx="16" fill="#FFFFFF" opacity="0.085"/>
+
+      <g opacity="0.12">
+        <rect x="34" y="462" width="240" height="96" rx="16" fill="#FFFFFF"/>
+        <rect x="286" y="462" width="240" height="96" rx="16" fill="#FFFFFF"/>
+      </g>
+
+      <!-- CTA “après” -->
+      <rect x="34" y="590" width="270" height="50" rx="25" fill="#D4AF37" opacity="0.38"/>
+      <rect x="34" y="654" width="492" height="14" rx="7" fill="#FFFFFF" opacity="0.07"/>
+    </g>
+  </g>
+
+  <!-- Divider hint -->
+  <rect x="792" y="120" width="16" height="680" rx="8" fill="#D4AF37" opacity="0.14"/>
+
+  <!-- micro labels -->
+  <g opacity="0.9">
+    <g transform="translate(210 118)">
+      <rect x="0" y="0" width="120" height="34" rx="17" fill="#D4AF37" opacity="0.18" stroke="#D4AF37" stroke-opacity="0.35"/>
+      <rect x="16" y="12" width="54" height="10" rx="5" fill="#FFFFFF" opacity="0.18"/>
+      <rect x="76" y="12" width="28" height="10" rx="5" fill="#FFFFFF" opacity="0.10"/>
+    </g>
+    <g transform="translate(890 88)">
+      <rect x="0" y="0" width="128" height="34" rx="17" fill="#D4AF37" opacity="0.22" stroke="#D4AF37" stroke-opacity="0.45"/>
+      <rect x="16" y="12" width="60" height="10" rx="5" fill="#FFFFFF" opacity="0.20"/>
+      <rect x="82" y="12" width="30" height="10" rx="5" fill="#FFFFFF" opacity="0.12"/>
+    </g>
+  </g>
+</svg>
+

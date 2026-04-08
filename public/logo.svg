@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="g" x1="18" y1="18" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#C49B2A"/>
+    </linearGradient>
+    <filter id="s" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#D4AF37" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- Transparent background (aucun carré) -->
+  <g filter="url(#s)">
+    <!-- Crown / K monogram (simple, premium, lisible petit) -->
+    <path
+      d="M34 28h20c14 0 24 8 24 20 0 8-4 14-11 18l16 34H63L49 70h-5v30H34V28zm10 10v22h10c9 0 14-4 14-11 0-7-5-11-14-11H44z"
+      fill="url(#g)"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+    />
+    <path
+      d="M78 52l22-24h12L86 56l28 44H102L78 62v-10z"
+      fill="url(#g)"
+      opacity="0.95"
+    />
+  </g>
+</svg>
+
